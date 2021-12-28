@@ -1,0 +1,7 @@
+<nav>
+
+    <h2><a href="{% url 'main' %}">Главная</a> </h2>
+     {% for i in var2keyslist %}
+         | <a href="{%url 'oceansapp_name' water=i%}">{{ forloop.counter }}  {{ i|title}}</a>
+     {% endfor %}
+</nav>

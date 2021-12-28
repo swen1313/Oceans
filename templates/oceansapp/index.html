@@ -1,0 +1,20 @@
+{% extends "oceansapp/base.html" %}
+{% load static %}
+
+ {% block css_add %}
+     <link rel="stylesheet" href="{% static 'oceansapp/index.css' %}">
+ {% endblock %}
+
+{% block title %}
+    Океаны Земли
+ {% endblock %}
+
+{% block content %}
+
+    <h1>Океаны Земли</h1>
+    <ul>
+        {% for i in var2keyslist %}
+            <li><h2><a href="{%url 'oceansapp_name' water=i%}">{{ forloop.counter }}  {{ i|title}}</a></h2></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

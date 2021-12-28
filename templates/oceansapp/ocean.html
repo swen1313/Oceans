@@ -1,0 +1,14 @@
+ {% extends "oceansapp/base.html" %}
+{% load static %}
+
+ {% block css_add %}
+     <link rel="stylesheet" href="{% static 'oceansapp/info.css' %}">
+ {% endblock %}
+
+{% block content %}
+    {% include 'oceansapp/includes.html' %}
+
+    <h1>Океаны Земли</h1>
+    <h2>{{ var1info }}</h2>
+
+ {% endblock %}
