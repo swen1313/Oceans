@@ -1,0 +1,23 @@
+{% extends "oceansapp/base.html" %}
+{% load static %}
+{% block css_add %}
+     <link rel="stylesheet" href="{% static 'oceansapp/index.css' %}">
+ {% endblock %}
+
+
+
+{% block title %}
+    Океаны Земли
+ {% endblock %}
+
+{% block content %}
+
+    {% include 'oceansapp/includes.html' %}
+
+    <h1>_____Mаксимальная глубина_____</h1>
+    <ul>
+        {% for i in modeldeeptable %}
+            <li><h2><a href="{{ i.get_url }}"> {{ i.name }}</a> {{ i.text }} {{ i.count }}</h2></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

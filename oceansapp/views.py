@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 from django.template.loader import render_to_string
+from .models import Deep
+
+
 
 ocean_dict = {
     'Pacific': 'Ти́хий океа́н — самый большой по площади и глубине океан на Земле.',
@@ -59,18 +62,21 @@ def get_hemishere(request, hemishere):
     else:
         return HttpResponseNotFound(f"Нет такого полушария {hemishere}")
 
-    #N_keys_list = list(hemi_dict)
-    #result =" "
-    #for i in N_keys_list:
-        #path = 'hemi', args=(i,)
 
-    #return HttpResponse(N_keys_list)
-    #url = 'hemi'
-    #response = f"""
-    #"""<br><h2><a>Океаны Северного полушария</a></h2></br>
-    #<br><h2><a>Океаны Южного полушария</a></h2></br>
-    #"""
-    #"""return HttpResponse(response)"""
+def get_deep(request):
+    modeldeeptable = Deep.objects.all()
+    return render(request, "oceansapp/deep.html", {"modeldeeptable":modeldeeptable})
+
+def get_deepone(request, int_deepone:int):
+    deepone = get_object_or_404(Deep, id=int_deepone)
+    return render(request, "oceansapp/deepone.html", {"deepone":deepone})
+
+
+
+
+def get_hemi(request):
+    return render(request, "oceansapp/new.html", {})
+
 
 
 

@@ -1,8 +1,17 @@
- {% block content %}
+{% extends "oceansapp/base.html" %}
+{% load static %}
+{% block css_add %}
+     <link rel="stylesheet" href="{% static 'oceansapp/index.css' %}">
+ {% endblock %}
+
+
+
+{% block content %}
     {% include 'oceansapp/includes.html' %}
     <h1>Океаны делятся по полушариям:</h1>
-
-    {% for key, value in var3hemi_dict.items reversed %}
-        <h4>{{ key }} : <a href="/oceansapp/{{ value }}">{{ value }}</a></h4>
-    {% endfor %}
+    <ul>
+        {% for key, value in var3hemi_dict.items reversed %}
+            <h4>{{ key }} : <a href="/oceansapp/{{ value }}">{{ value }}</a></h4>
+        {% endfor %}
+    </ul>
   {% endblock %}

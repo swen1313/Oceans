@@ -1,0 +1,24 @@
+{% extends "oceansapp/base.html" %}
+{% load static %}
+{% block css_add %}
+     <link rel="stylesheet" href="{% static 'oceansapp/index.css' %}">
+ {% endblock %}
+
+
+
+{% block title %}
+    Информация об океане - {{ deepone.name }}
+ {% endblock %}
+
+{% block content %}
+
+    {% include 'oceansapp/includes.html' %}
+
+    <h1>Вы выбрали: {{ deepone.name }} </h1>
+    <h2> {{ deepone.text }} - {{ deepone.count }} метров</h2>
+
+    <h2>соленость - {{ deepone.salt }}</h2>
+    <h2>наличие лунного камня - {{ deepone.moon }}</h2>
+
+
+{% endblock %}
